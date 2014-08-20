@@ -13,6 +13,16 @@ In this project, evaluation is done by peers. Therefore we are asked to submit:
 * a link to this Github repo
 * a code book that describes the variables, the data, and any transformations or work performed to clean up the data in a CodeBook.md file.
 
+About the data
+--------------
+The data sets used for this project contain measures collected from the accelerometers from the Samsumg Galaxy S smartphone. A full description is available at this site:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The data itself can be downloaded from this url
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
 Files in this repo
 ------------------
 In this repo you will find:

@@ -120,6 +120,5 @@ names(data.tidy2)[2] <- "subject"
 
 # Check final data set
 str(data.tidy2) # ok.
-
 # Export data to txt format
 write.table(data.tidy2, file="TidyDataSetFinal.txt", row.names=FALSE)

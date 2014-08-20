@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>CODEBOOK</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>CODEBOOK</h1>
+
+<p>This file contains the Codebook for the final tidy data set.</p>
+
+<h2>Original Data</h2>
+
+<p>This section describes the sources and meaning of the data used in this project.</p>
+
+<h4>Links</h4>
+
+<p>The data sets used for this project contain measures collected from the accelerometers from the Samsumg Galaxy S smartphone. A full description is available at this site:</p>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>The data itself can be downloaded from this url</p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
+
+<h4>Description of the experiments</h4>
+
+<p>(Taken from README file in original data)
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. </p>
+
+<p>The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. </p>
+
+<h4>Measures</h4>
+
+<p>For each record the original data provides measures for:</p>
+
+<ul>
+<li>Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</li>
+<li>Triaxial Angular velocity from the gyroscope. </li>
+<li>A 561-feature vector with time and frequency domain variables. </li>
+<li>Its activity label. </li>
+<li>An identifier of the subject who carried out the experiment.</li>
+</ul>
+
+<h2>Transformed Data</h2>
+
+<p>This section describes which files were used, what transformations were applied to them and the variables contained in the final data set.</p>
+
+<h3>Files</h3>
+
+<p>For this project the following files (divided into two groups, training and test files) were read into R:</p>
+
+<ul>
+<li>&#39;features.txt&#39;: List of all features, from which we took variable names.</li>
+<li>&#39;activity_labels.txt&#39;: Links the class labels with their activity name.</li>
+<li>&#39;train/X_train.txt&#39;: Training set with measurement values.</li>
+<li>&#39;train/y_train.txt&#39;: Training labels.</li>
+<li>&#39;train/subject_train.txt&#39;: Subjects in the train set.</li>
+<li>&#39;test/X_test.txt&#39;: Test set with measurement values.</li>
+<li>&#39;test/y_test.txt&#39;: Test labels.</li>
+<li>&#39;test/subject_test.txt&#39;: Subjects in the test set.</li>
+</ul>
+
+<h3>Transformations</h3>
+
+<h4>Merging and Reading</h4>
+
+<ol>
+<li>Feature labels were read: <code>features.txt</code></li>
+<li>For each files in train and test directories data for measurements (<code>X_train.txt</code>, <code>X_test.txt</code>), activity values (<code>y_train.txt</code>, <code>y_test.txt</code>) and subject identifiers (<code>subject_train.txt</code>, <code>subject_test.txt</code>) were read. For the measurements files, feature labels read from <code>features.txt</code> were applied to the columns.</li>
+<li>Measurements (X) were merged with activities (Y) and with subject identifiers, and train/test observations were stacked with <code>rbind()</code> function in a single data frame.</li>
+<li>Finally activity labels were retrieved and applied to the merged data set from <code>activity_labels.txt</code></li>
+</ol>
+
+<h4>Selecting columns</h4>
+
+<p>Columns with <code>mean</code> and <code>standard deviation</code> values were retrieved by using regular expressions, and selected to form a first tidy data set.</p>
+
+<h4>Aggregation</h4>
+
+<p>Finally a second tidy data set was created by computing the mean (average value, with removal of <code>NA</code> values) of the selected columns for each activity and subject. </p>
+
+<p>This data was exported to the file <code>TidyDataSetFinal.txt</code> in this repo.</p>
+
+<h3>Variable names</h3>
+
+<p>Here we list the variable names for the final data set, as you will find them in <code>TidyDataSetFinal.txt</code>.</p>
+
+<p>The first two columns contain identifiers for each activity value and each subject. The file contains a row for each combination of these two variables (180 in total).</p>
+
+<p>As explained before, the rest of columns contain mean (average) values for the <code>mean</code> and <code>standard deviation</code> columns in the original features (X measures).</p>
+
+<ul>
+<li>activity</li>
+<li>subject </li>
+<li>tBodyAcc.mean&hellip;X</li>
+<li>tBodyAcc.mean&hellip;Y</li>
+<li>tBodyAcc.mean&hellip;Z </li>
+<li>tGravityAcc.mean&hellip;X</li>
+<li>tGravityAcc.mean&hellip;Y </li>
+<li>tGravityAcc.mean&hellip;Z </li>
+<li>tBodyAccJerk.mean&hellip;X </li>
+<li>tBodyAccJerk.mean&hellip;Y </li>
+<li>tBodyAccJerk.mean&hellip;Z </li>
+<li>tBodyGyro.mean&hellip;X </li>
+<li>tBodyGyro.mean&hellip;Y </li>
+<li>tBodyGyro.mean&hellip;Z </li>
+<li>tBodyGyroJerk.mean&hellip;X </li>
+<li>tBodyGyroJerk.mean&hellip;Y </li>
+<li>tBodyGyroJerk.mean&hellip;Z </li>
+<li>tBodyAccMag.mean..</li>
+<li>tGravityAccMag.mean.. </li>
+<li>tBodyAccJerkMag.mean.. </li>
+<li>tBodyGyroMag.mean..</li>
+<li>tBodyGyroJerkMag.mean.. </li>
+<li>fBodyAcc.mean&hellip;X</li>
+<li>fBodyAcc.mean&hellip;Y </li>
+<li>fBodyAcc.mean&hellip;Z </li>
+<li>fBodyAcc.meanFreq&hellip;X </li>
+<li>fBodyAcc.meanFreq&hellip;Y </li>
+<li>fBodyAcc.meanFreq&hellip;Z </li>
+<li>fBodyAccJerk.mean&hellip;X </li>
+<li>fBodyAccJerk.mean&hellip;Y </li>
+<li>fBodyAccJerk.mean&hellip;Z </li>
+<li>fBodyAccJerk.meanFreqz..X </li>
+<li>fBodyAccJerk.meanFreq&hellip;Y </li>
+<li>fBodyAccJerk.meanFreq&hellip;Z </li>
+<li>fBodyGyro.mean&hellip;X</li>
+<li>fBodyGyro.mean&hellip;Y </li>
+<li>fBodyGyro.mean&hellip;Z </li>
+<li>fBodyGyro.meanFreq&hellip;X </li>
+<li>fBodyGyro.meanFreq&hellip;Y </li>
+<li>fBodyGyro.meanFreq&hellip;Z </li>
+<li>fBodyAccMag.mean..</li>
+<li>fBodyAccMag.meanFreq.. </li>
+<li>fBodyBodyAccJerkMag.mean.. </li>
+<li>fBodyBodyAccJerkMag.meanFreq.. </li>
+<li>fBodyBodyGyroMag.mean..</li>
+<li>fBodyBodyGyroMag.meanFreq.. </li>
+<li>fBodyBodyGyroJerkMag.mean.. </li>
+<li>fBodyBodyGyroJerkMag.meanFreq.. </li>
+<li>tBodyAcc.std&hellip;X</li>
+<li>tBodyAcc.std&hellip;Y </li>
+<li>tBodyAcc.std&hellip;Z </li>
+<li>tGravityAcc.std&hellip;X </li>
+<li>tGravityAcc.std&hellip;Y </li>
+<li>tGravityAcc.std&hellip;Z </li>
+<li>tBodyAccJerk.std&hellip;X </li>
+<li>tBodyAccJerk.std&hellip;Y </li>
+<li>tBodyAccJerk.std&hellip;Z </li>
+<li>tBodyGyro.std&hellip;X</li>
+<li>tBodyGyro.std&hellip;Y </li>
+<li>tBodyGyro.std&hellip;Z </li>
+<li>tBodyGyroJerk.std&hellip;X </li>
+<li>tBodyGyroJerk.std&hellip;Y </li>
+<li>tBodyGyroJerk.std&hellip;Z </li>
+<li>tBodyAccMag.std..</li>
+<li>tGravityAccMag.std.. </li>
+<li>tBodyAccJerkMag.std.. </li>
+<li>tBodyGyroMag.std..</li>
+<li>tBodyGyroJerkMag.std.. </li>
+<li>fBodyAcc.std&hellip;X</li>
+<li>fBodyAcc.std&hellip;Y </li>
+<li>fBodyAcc.std&hellip;Z </li>
+<li>fBodyAccJerk.std&hellip;X </li>
+<li>fBodyAccJerk.std&hellip;Y </li>
+<li>fBodyAccJerk.std&hellip;Z </li>
+<li>fBodyGyro.std&hellip;X</li>
+<li>fBodyGyro.std&hellip;Y </li>
+<li>fBodyGyro.std&hellip;Z </li>
+<li>fBodyAccMag.std.. </li>
+<li>fBodyBodyAccJerkMag.std.. </li>
+<li>fBodyBodyGyroMag.std..</li>
+<li>fBodyBodyGyroJerkMag.std.. </li>
+</ul>
+
+</body>
+
+</html>
+
